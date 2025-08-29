@@ -1,0 +1,2 @@
+//get's the product details from off-api and formats it into MD
+GET http://localhost:8000/products/find?bcode="3017620422003"
