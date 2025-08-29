@@ -1,6 +1,6 @@
 # Product-safety (temporary name)
 
-ProdWise is a food product analysis tool.  
+Product-safety is a food product analysis tool.  
 It lets users look up products by **barcode or name**, fetches details from [OpenFoodFacts](https://world.openfoodfacts.org/), and uses an LLM to answer product-related questions like:
 
 - "Is this safe if I have an allergy?"
