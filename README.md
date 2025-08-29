@@ -1,6 +1,9 @@
 # Product-safety (temporary name)
 
-Product-safety is a food product analysis tool.  
+Product-safety is a food product analysis tool.<br>
+
+This is the official `backend` repository<br>
+
 It lets users look up products by **barcode or name**, fetches details from [OpenFoodFacts](https://world.openfoodfacts.org/), and uses an LLM to answer product-related questions like:
 
 - "Is this safe if I have an allergy?"
