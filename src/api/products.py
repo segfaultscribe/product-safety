@@ -1,11 +1,10 @@
 from fastapi import APIRouter
 from src.api.off import off_api
-from src.llm.groq import query_groq
+from src.llm.groq_client import query_groq
 
 import json
 
 ProductsRouter = APIRouter()
-
 
 def format_product_summary(data: dict) -> str:
     try:
@@ -56,7 +55,6 @@ def format_product_summary(data: dict) -> str:
 
     except Exception as e:
         return f"⚠️ Error formatting product data: {str(e)}"
-
 
 # @ProductsRouter.get('/find')
 async def getProdInformation(bcode: str = None):
