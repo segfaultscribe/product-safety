@@ -1,6 +1,10 @@
 from fastapi import FastAPI
-from api.products import ProductsRouter
+from src.api.products import ProductsRouter
+from dotenv import load_dotenv
+ 
 app = FastAPI()
+
+load_dotenv()
 
 @app.get("/")
 async def root():

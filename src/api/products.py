@@ -1,5 +1,7 @@
 from fastapi import APIRouter
-from api.off import off_api
+from src.api.off import off_api
+from src.llm.groq import query_groq
+
 import json
 
 ProductsRouter = APIRouter()
@@ -21,7 +23,7 @@ def format_product_summary(data: dict) -> str:
 
         summary = f"""📦 Product Categories: {categories}
 
-🖼️ Image: {image_url}
+![product-image]({image_url})
 
 🍫 Ingredients:
 {ingredients.strip()}
@@ -56,7 +58,7 @@ def format_product_summary(data: dict) -> str:
         return f"⚠️ Error formatting product data: {str(e)}"
 
 
-@ProductsRouter.get('/find')
+# @ProductsRouter.get('/find')
 async def getProdInformation(bcode: str = None):
     if bcode:
         response = off_api.product.get(bcode, fields=['nutrient_levels', 'nutriments', 'allergens', 'allergens_from_ingredients', 'categories', 'image_url', 'ingredients_hierarchy', 'ingredients_text_en_ocr_1642445989_result'])
@@ -68,3 +70,9 @@ async def getProdInformation(bcode: str = None):
     else:
         return {"error": "Please provide a name or barcode"}
 
+@ProductsRouter.get('/chat-with-item')
+async def chat_with_item(barcode: str, question: str):
+    summary = await getProdInformation(barcode)  # from Redis or API
+    print(f"summary: {summary}, \n\n\n\nquestion: {question}")
+    answer = await query_groq(summary, question)
+    return {"answer": answer}

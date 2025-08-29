@@ -6,10 +6,6 @@ from app.services.crud_user import create_user, get_user_by_email
 
 router = APIRouter()
 
-async def get_db():
-    async with SessionLocal() as session:
-        yield session
-
 @router.post("/", response_model=UserOut)
 async def signup(user: UserCreate, db: AsyncSession = Depends(get_db)):
     db_user = await get_user_by_email(db, user.email)

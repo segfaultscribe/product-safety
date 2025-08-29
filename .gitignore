@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+.env
+dastuffweneed.py
+groq-test.md
