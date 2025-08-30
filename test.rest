@@ -1,6 +1,6 @@
-# //get's the product details from off-api and formats it into MD
-# GET http://localhost:8000/products/find?bcode="3017620422003"
+//get's the product details from off-api and formats it into MD
+GET http://localhost:8000/api/products/find?bcode="3017620422003"
 
 
 // start chat interface with groq
-GET http://localhost:8000/products/chat-with-item?barcode="3017620422003"&question="How much should I serve in one sitting?"
+# GET http://localhost:8000/products/chat-with-item?barcode="3017620422003"&question="How much should I serve in one sitting?"

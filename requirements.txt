@@ -4,3 +4,4 @@ openfoodfacts
 httpx
 python-dotenv
 groq
+starlette
