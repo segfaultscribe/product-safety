@@ -56,10 +56,28 @@ def format_product_summary(data: dict) -> str:
     except Exception as e:
         return f"⚠️ Error formatting product data: {str(e)}"
 
-# @ProductsRouter.get('/find')
+@ProductsRouter.get('/find')
 async def getProdInformation(bcode: str = None):
     if bcode:
-        response = off_api.product.get(bcode, fields=['nutrient_levels', 'nutriments', 'allergens', 'allergens_from_ingredients', 'categories', 'image_url', 'ingredients_hierarchy', 'ingredients_text_en_ocr_1642445989_result'])
+        response = off_api.product.get(bcode, fields=[
+            'nutrient_levels', 
+            'nutriments', 
+            'nutrition_grades_tags', 
+            'allergens', 
+            'allergens_from_ingredients', 
+            'categories', 
+            'image_url', 
+            'ingredients_hierarchy', 
+            'ingredients_text_en_ocr_1642445989_result', 
+            'categories_tags', 
+            'labels_tags', 
+            'traces', 
+            'additives_tags', 
+            'ecoscore_grade',
+            'serving_size',
+            'quantity_per_unit',
+        ])
+
         if response:
             # Save ALL the data to a formatted JSON file
             response = format_product_summary(response)

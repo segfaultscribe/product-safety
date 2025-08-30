@@ -6,8 +6,8 @@ app = FastAPI()
 
 load_dotenv()
 
-@app.get("/")
+@app.get("/api")
 async def root():
-    return {"message": "Welcome to ProdWise!"}
+    return {"message": "Welcome to Product-safety!"}
 
-app.include_router(ProductsRouter, prefix="/products", tags=["products"])
+app.include_router(ProductsRouter, prefix="/api/products", tags=["products"])
