@@ -5,3 +5,4 @@ httpx
 python-dotenv
 groq
 starlette
+redis
