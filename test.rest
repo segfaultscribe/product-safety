@@ -1,5 +1,5 @@
 //get's the product details from off-api and formats it into MD
-GET http://localhost:8000/api/products/find?bcode="3017620422003"
+GET http://localhost:8000/api/products/find?barcode="3017620422003"
 
 
 // start chat interface with groq

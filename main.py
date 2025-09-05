@@ -23,6 +23,7 @@ load_dotenv()
 # middleware to add session cookie to each user, we'll need to rate limit em'
 @app.middleware("http")
 async def add_session_cookie(request: Request, call_next):
+    print("Request in middleware!")
     response: Response = await call_next(request)
     session_id = request.cookies.get("session_id")
     if not session_id:
