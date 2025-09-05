@@ -1,5 +1,5 @@
 import json
-from core.redis_client import redis_client
+from src.core.redis_client import redis_client
 
 def save_product_info(session_id: str, role: str, content: str):
     key = f"chat:{session_id}"

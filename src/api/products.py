@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Request
 from src.api.off import off_api
 from src.llm.groq_client import query_groq
-from helper.format_product import format_product_summary
-from helper.context import save_product_info, get_history
+from src.helper.format_product import format_product_summary
+from src.helper.context import save_product_info, get_history
 import json
 
 ProductsRouter = APIRouter()
