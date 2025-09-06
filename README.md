@@ -1,5 +1,6 @@
 # Product-safety (temporary name)
 
+![alt text](<product safety.gif>)
 Product-safety is a food product analysis tool.<br>
 
 This is the official `backend` repository<br>
